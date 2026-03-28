@@ -1,0 +1,547 @@
+html
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asociația Opti Core Vest</title>
+  <style>
+    :root {
+      --primary: #1f6fb2;
+      --primary-light: #e6f1fb;
+      --accent: #f4b000;
+      --text: #222;
+      --bg: #ffffff;
+      --muted: #666;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ffffffcc;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      padding: 0.25rem 0.5rem;
+      border-radius: 999px;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .hero {
+      padding: 4rem 0 3rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 2.3rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .hero h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .hero p {
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #15548a;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-light);
+    }
+
+    .hero-visual {
+      background: radial-gradient(circle at top, #e6f1fb, #ffffff);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      border: 1px solid #dde6f2;
+      text-align: center;
+    }
+
+    .hero-visual .eye {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 6px solid var(--primary);
+      margin: 0 auto 1rem;
+      position: relative;
+      background: #fff;
+    }
+
+    .hero-visual .eye::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--primary);
+      transform: translate(-50%, -50%);
+    }
+
+    .hero-visual .eye::after {
+      content: "";
+      position: absolute;
+      top: 38%;
+      left: 44%;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .hero-visual h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .hero-visual p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    section {
+      padding: 3rem 0;
+    }
+
+    section:nth-of-type(odd) {
+      background: #f8fafc;
+    }
+
+    h2.section-title {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    ul.list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.list li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.2rem;
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    ul.list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    form {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    label {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      border-radius: 0.6rem;
+      border: 1px solid #cbd5e1;
+      font-size: 0.95rem;
+      resize: vertical;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px var(--primary-light);
+    }
+
+    footer {
+      padding: 1.5rem 0;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 800px) {
+      .hero,
+      .grid-2,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
+
+      nav ul {
+        display: none; /* simplu pentru început; se poate face și meniu mobil ulterior */
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">Asociația <span>Opti Core Vest</span></div>
+      <nav>
+        <ul>
+          <li><a href="#acasa">Acasă</a></li>
+          <li><a href="#despre">Despre noi</a></li>
+          <li><a href="#activitate">Activitatea noastră</a></li>
+          <li><a href="#resurse">Resurse</a></li>
+          <li><a href="#implica-te">Implică-te</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="acasa">
+    <section>
+      <div class="container hero">
+        <div>
+          <h1>Sprijinim comunitatea să vadă mai bine</h1>
+          <h2>Din grijă pentru copii, părinți și bunici.</h2>
+          <p>
+            Asociația Opti Core Vest promovează sănătatea vederii prin educație, screening,
+            campanii de informare și sprijin pentru persoanele vulnerabile. Credem că fiecare
+            om merită șansa la o viață mai clară.
+          </p>
+          <div class="hero-buttons">
+            <a href="#despre" class="btn btn-primary">Află mai multe</a>
+            <a href="#implica-te" class="btn btn-outline">Implică-te</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="eye"></div>
+          <h3>Sănătatea vederii în comunitate</h3>
+          <p>
+            Programe de prevenție, educație și intervenție timpurie pentru o viață mai clară
+            pentru toți.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="despre">
+      <div class="container">
+        <h2 class="section-title">Despre noi</h2>
+        <p class="section-subtitle">
+          Cine suntem și de ce am ales să punem sănătatea vederii în centrul comunității.
+        </p>
+        <div class="grid-2">
+          <div>
+            <h3>Cine suntem</h3>
+            <p>
+              Asociația Opti Core Vest este o organizație non-guvernamentală dedicată sănătății
+              vederii în comunitate. Ne-am format din dorința de a aduce mai multă claritate —
+              la propriu și la figurat — în viețile oamenilor.
+            </p>
+            <h3>Misiunea noastră</h3>
+            <p>
+              Să sprijinim comunitatea să vadă mai bine, prin programe de prevenție, educație
+              și intervenție timpurie, cu grijă pentru copii, părinți și bunici.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Viziune și valori</h3>
+            <p>
+              Ne dorim o comunitate în care fiecare persoană, indiferent de vârstă sau situație,
+              are acces la informații, evaluări și soluții pentru o vedere sănătoasă.
+            </p>
+            <ul class="list" style="margin-top: 0.75rem;">
+              <li><strong>Grijă</strong> pentru oameni și nevoile lor reale</li>
+              <li><strong>Educație</strong> pentru prevenție și informare corectă</li>
+              <li><strong>Accesibilitate</strong> pentru toți, fără discriminare</li>
+              <li><strong>Transparență</strong> și profesionalism în tot ceea ce facem</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="activitate">
+      <div class="container">
+        <h2 class="section-title">Activitatea noastră</h2>
+        <p class="section-subtitle">
+          Programe și acțiuni prin care transformăm grija pentru vedere în rezultate concrete.
+        </p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Ce facem concret</h3>
+            <ul class="list">
+              <li>Organizăm screening-uri gratuite pentru copii, vârstnici și persoane vulnerabile</li>
+              <li>Derulăm campanii de informare despre sănătatea ochilor</li>
+              <li>Susținem programe educaționale în școli și comunități</li>
+              <li>Colaborăm cu specialiști pentru evaluări și recomandări personalizate</li>
+              <li>Dezvoltăm materiale informative accesibile tuturor</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Impactul pe care îl urmărim</h3>
+            <p>
+              Ne propunem să creștem nivelul de conștientizare privind sănătatea vederii și să
+              ajutăm cât mai multe persoane să descopere din timp problemele oftalmologice.
+            </p>
+            <p style="margin-top: 0.75rem;">
+              Fiecare control preventiv, fiecare material citit și fiecare discuție deschisă
+              despre sănătatea ochilor înseamnă un pas înainte spre o comunitate care vede mai bine.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resurse">
+      <div class="container">
+        <h2 class="section-title">Resurse și educație</h2>
+        <p class="section-subtitle">
+          Informații esențiale pentru părinți, bunici și toți cei care vor să aibă grijă de vedere.
+        </p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Prevenție la copii</h3>
+            <ul class="list">
+              <li>Importanța controalelor periodice de la vârste mici</li>
+              <li>Semne timpurii că un copil ar putea avea nevoie de ochelari</li>
+              <li>Recomandări pentru timpul petrecut în fața ecranelor</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Grijă pentru părinți și bunici</h3>
+            <ul class="list">
+              <li>Afecțiuni frecvente ale vederii la vârsta adultă și la vârstnici</li>
+              <li>Importanța monitorizării periodice a vederii</li>
+              <li>Adaptarea mediului de acasă pentru o vedere mai confortabilă</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="implica-te">
+      <div class="container">
+        <h2 class="section-title">Implică-te</h2>
+        <p class="section-subtitle">
+          Împreună putem ajuta mai mulți oameni să vadă mai bine. Orice sprijin contează.
+        </p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Voluntariat</h3>
+            <p>
+              Te poți alătura echipei noastre și poți contribui la activități educaționale,
+              organizare de evenimente sau campanii de informare. Nu este nevoie să fii specialist,
+              este suficient să îți pese.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Donații și parteneriate</h3>
+            <p>
+              Sprijinul tău ne ajută să oferim evaluări gratuite și materiale educaționale celor
+              care au nevoie. Suntem deschiși la colaborări cu școli, clinici, companii și alte ONG-uri.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">
+          Scrie-ne dacă vrei să afli mai multe, să te implici sau să colaborăm.
+        </p>
+        <div class="contact-grid">
+          <div>
+            <form>
+              <div>
+                <label for="nume">Nume</label>
+                <input type="text" id="nume" name="nume" placeholder="Numele tău" />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="adresa@exemplu.ro" />
+              </div>
+              <div>
+                <label for="mesaj">Mesaj</label>
+                <textarea id="mesaj" name="mesaj" rows="4" placeholder="Mesajul tău"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Trimite mesajul</button>
+            </form>
+            <p style="font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem;">
+              (Pentru funcționalitate reală de trimitere, va fi nevoie de integrare suplimentară pe server sau printr-un serviciu de formulare.)
+            </p>
+          </div>
+          <div class="card">
+            <h3>Date de contact</h3>
+            <p><strong>Asociația Opti Core Vest</strong></p>
+            <p>
+              📧 Email: <em>completează aici</em><br />
+              📞 Telefon: <em>completează aici</em><br />
+              📍 Adresă: <em>opțional</em>
+            </p>
+            <p style="margin-top: 0.75rem;">
+              Ne poți găsi și pe rețelele de socializare:<br />
+              <em>Facebook / Instagram / alte canale</em>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; <span id="year"></span> Asociația Opti Core Vest — Din grijă pentru copii, părinți și bunici.
+    </div>
+  </footer>
+
+  <script>
+    // Actualizează automat anul din footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
